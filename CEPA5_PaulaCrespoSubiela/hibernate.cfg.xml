@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+
+<hibernate-confihguration>
+    <ssesion-factory>
+        <!--Connection properties-->
+        
+        <!-- Drive JDBC -->
+        <property name="connection.driver_class">
+            com.mysql.cj.jdbc.Driver
+        </property>
+        
+        <!-- Añadir ?createDatabaseIfNotExist=true para crear la BD si no existe -->
+        <!-- testHibernate es la BD, hay que cambiarla por la que usemos -->
+        <property name="connection.url">
+            jdbc:mysql://localhost:3308/DocenciaConsultas?createDatabaseIfNotExist=true
+        </property>
+        
+        <!--usuario y contraseña -->
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        
+        <!-- configuracion extra -->
+        <!-- JDBC connection pool for concurrent connections -->
+        <property name="connection.pool_size">5</property>
+        
+        <!-- dialect connector. Useful for Foreing Keys-->
+        <property name="dialect">
+            org.hibernate.dialect.MySQL5InnoDBDialect
+        </property>
+        
+        <!-- one thread one session -->
+        <property name="current_session_context_class">thread</property>
+        
+        <!-- show "reals" SQL ops. only for development-->
+        <property name="show_sql">true</property>
+        
+        <!-- DB maintenance -->
+        <property name="hbm2ddl.auto">valid</property>
+        
+        <!-- options hbm2dll:
+            create :
+                create always DB when session factory is loaded. Data will be lost.
+            
+            update :
+                Data will be safe, but database structure will be update.
+                Useful in production.
+            create-drop :
+                like create and dropping the database.
+            validate:
+                check the mapping between database and beans.
+        -->
+        
+        <!-- mapping classes -->
+        <!-- <mapping class="Model.Profesor" /> -->
+
+        
+    </ssesion-factory>
+</hibernate-confihguration>
